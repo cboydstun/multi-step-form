@@ -1,23 +1,17 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
+import { UserForm } from '/components/UserForm';
 
-function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
-  return (
-    <main>
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App"> 
+        <UserForm />
+
+      </div>
+    )
+  }
 }
 
 export default App;
